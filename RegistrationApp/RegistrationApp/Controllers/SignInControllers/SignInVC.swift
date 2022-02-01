@@ -11,19 +11,24 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func createAccountBtn() {
+        let signUpStoryboard = UIStoryboard(name: "SignUpStoryboard", bundle: nil)
+      guard let SignUpUIVC = signUpStoryboard.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC else {
+         return }
+        navigationController?.pushViewController(SignUpUIVC, animated: true)
     }
-    */
-
+    
+    @IBAction func emailTextField() {
+    }
+    
+    @IBAction func passTextField() {
+    }
+    
+    @IBAction func signInBtnClick() {
+    }
+    
+    @IBOutlet weak var signInBtn: UIButton!
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3551E79B27AC92CB0079EE87 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E79A27AC92CB0079EE87 /* MainVC.swift */; };
 		A74180F427A53CFD00B4ED63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74180F327A53CFD00B4ED63 /* AppDelegate.swift */; };
 		A74180F627A53CFD00B4ED63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74180F527A53CFD00B4ED63 /* SceneDelegate.swift */; };
 		A74180FD27A53CFE00B4ED63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74180FC27A53CFE00B4ED63 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3551E79A27AC92CB0079EE87 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = RegistrationApp/Controllers/SignUpControllers/MainVC.swift; sourceTree = SOURCE_ROOT; };
 		A74180F027A53CFD00B4ED63 /* RegistrationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegistrationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74180F327A53CFD00B4ED63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74180F527A53CFD00B4ED63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		A741811327A53EC900B4ED63 /* SignInControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3551E79A27AC92CB0079EE87 /* MainVC.swift */,
 				A741811127A53EC000B4ED63 /* SignInVC.swift */,
 			);
 			path = SignInControllers;
@@ -217,6 +220,7 @@
 				A741810827A53DCF00B4ED63 /* VerificationServiceVC.swift in Sources */,
 				A741811227A53EC100B4ED63 /* SignInVC.swift in Sources */,
 				A74180F427A53CFD00B4ED63 /* AppDelegate.swift in Sources */,
+				3551E79B27AC92CB0079EE87 /* MainVC.swift in Sources */,
 				A741810B27A53E3600B4ED63 /* CreateAccountVC.swift in Sources */,
 				A741810F27A53E6B00B4ED63 /* WelcomeVC.swift in Sources */,
 				A74180F627A53CFD00B4ED63 /* SceneDelegate.swift in Sources */,

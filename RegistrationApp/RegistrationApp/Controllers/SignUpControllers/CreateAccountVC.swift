@@ -150,10 +150,10 @@ final class CreateAccountVC: UIViewController {
       }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let modalVC = segue.destination as? CodeVerificationVC {
-            modalVC.email = emailTextFieldOutlet.text
-            modalVC.name = nameTextFieldOutlet.text
-            modalVC.password = passOneOutlet.text
+        if let CodeverificationVC = segue.destination as? CodeVerificationVC {
+            CodeverificationVC.email = emailTextFieldOutlet.text
+            CodeverificationVC.name = nameTextFieldOutlet.text
+            CodeverificationVC.password = passOneOutlet.text
         }
     }
 }

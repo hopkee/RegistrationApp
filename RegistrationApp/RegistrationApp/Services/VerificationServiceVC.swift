@@ -56,4 +56,22 @@ final class VerificationService {
     static func isPassConfirm(pass1: String, pass2: String) -> Bool {
         return pass1 == pass2
     }
+    
+    static func isEmailExist(email: String?) -> Bool {
+        if let email = email {
+            if UserDefaults.standard.string(forKey: email) != nil {
+                return true
+            }
+        }
+        return false
+    }
+    
+    static func isPassExist(pass: String?) -> Bool {
+        if let pass = pass {
+            if UserDefaults.standard.string(forKey: pass) != nil {
+                return true
+            }
+        }
+        return false
+    }
 }

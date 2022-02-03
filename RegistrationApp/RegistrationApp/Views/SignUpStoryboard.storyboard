@@ -196,16 +196,66 @@
                         <outlet property="signUpBtnOutlet" destination="RqC-9x-Udg" id="bKd-Eb-8fb"/>
                         <outlet property="validEmailLabel" destination="WaJ-2i-bNg" id="5Yz-44-z3y"/>
                         <outlet property="validNameLabel" destination="taZ-h4-J0P" id="632-SW-2U5"/>
+                        <segue destination="IWh-1y-lsZ" kind="presentation" identifier="Modal_Verification" id="z2g-pB-ZdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="356.52173913043481" y="98.4375"/>
         </scene>
+        <!--Code VerificationVC-->
+        <scene sceneID="5Fv-gY-8w5">
+            <objects>
+                <viewController id="IWh-1y-lsZ" customClass="CodeVerificationVC" customModule="RegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NBy-vJ-LnS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="dOt-VH-QqG">
+                                <rect key="frame" x="47.5" y="336" width="319.5" height="136.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your verification code" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-zT-tBS">
+                                        <rect key="frame" x="0.0" y="0.0" width="319.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your code is " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW3-Ms-1MG">
+                                        <rect key="frame" x="110.5" y="56" width="98" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wXJ-CM-u7c">
+                                        <rect key="frame" x="94" y="102.5" width="131" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="passField:" destination="IWh-1y-lsZ" eventType="editingChanged" id="eg3-hH-4Kc"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Un-m3-B1C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dOt-VH-QqG" firstAttribute="centerY" secondItem="2Un-m3-B1C" secondAttribute="centerY" id="cR9-Vg-zmo"/>
+                            <constraint firstItem="dOt-VH-QqG" firstAttribute="centerX" secondItem="2Un-m3-B1C" secondAttribute="centerX" id="s6m-s9-7Lv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jGv-ME-fED"/>
+                    <connections>
+                        <outlet property="codeLabel" destination="tW3-Ms-1MG" id="oTz-e6-whW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="poW-0b-Coz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1259" y="98"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="S5o-bJ-QTu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ios-fc-hZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAU-B3-I4n" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Y5-xz-IeY">
@@ -217,6 +267,7 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Tga-9D-3Bv"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ios-fc-hZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-552.17391304347825" y="97.767857142857139"/>
         </scene>

@@ -96,7 +96,7 @@ final class CreateAccountVC: UIViewController {
     }
     
     @IBAction func signUpBtnClick() {
-        
+        performSegue(withIdentifier: "Modal_Verification", sender: nil)
     }
     
     @IBOutlet weak var emailTextFieldOutlet: UITextField!
@@ -134,7 +134,6 @@ final class CreateAccountVC: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         else {
-          // if keyboard size is not available for some reason, dont do anything
           return
         }
 
@@ -146,9 +145,15 @@ final class CreateAccountVC: UIViewController {
      @objc func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
             
-        
-        // reset back the content inset to zero after keyboard is gone
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
       }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let modalVC = segue.destination as? CodeVerificationVC {
+            modalVC.email = emailTextFieldOutlet.text
+            modalVC.name = nameTextFieldOutlet.text
+            modalVC.password = passOneOutlet.text
+        }
     }
+}

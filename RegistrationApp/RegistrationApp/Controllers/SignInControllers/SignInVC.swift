@@ -26,7 +26,7 @@ class SignInVC: UIViewController {
     @IBAction func emailField(_ sender: UITextField) {
         if sender.text?.count ?? 0 > 0 {
             signInBtnOutlet.isEnabled = true
-            self.email = sender.text
+            email = sender.text
             errorLabel.isHidden = true
         }
     }
@@ -34,14 +34,14 @@ class SignInVC: UIViewController {
     @IBAction func passField(_ sender: UITextField) {
         if sender.text?.count ?? 0 > 0 {
             signInBtnOutlet.isEnabled = true
-            self.password = sender.text
+            password = sender.text
             errorLabel.isHidden = true
         }
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {
-        if VerificationService.isEmailExist(email: self.email) &&
-            VerificationService.isPassExist(pass: self.password) {
+        if VerificationService.checkEmail(email: email) &&
+            VerificationService.checkPass(pass: password) {
             performSegue(withIdentifier: "Go_To_Main", sender: nil)
         } else {
             errorLabel.isHidden = false

@@ -14,6 +14,8 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
     var email: String?
     var password: String?
     
+    var verificationCode: String?
+    
     let userNotificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
@@ -27,7 +29,7 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
     
     @IBAction func passField(_ sender: UITextField) {
         if let enteredCode = sender.text,
-           let generatedCode = self.password {
+           let generatedCode = verificationCode {
             if enteredCode == generatedCode {
                 createAccountBtn.isEnabled = true
             }
@@ -58,11 +60,11 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
         }
     
     func makeNotificationWithPassword() {
-        let password = String(Int.random(in: 9999...99999))
-        self.password = password
+        let tempPass = String(Int.random(in: 9999...99999))
+        verificationCode = tempPass
         let notificationContent = UNMutableNotificationContent()
             notificationContent.title = "Your verification code"
-            notificationContent.body = password
+            notificationContent.body = tempPass
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2,
                                                             repeats: false)
@@ -78,12 +80,10 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
     }
     
  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     let targetVC = segue.destination as? WelcomeVC
-     if let name = self.name {
-         targetVC?.name = ", " + name
+     if let welcomeVC = segue.destination as? WelcomeVC {
+     welcomeVC.password = password
+     welcomeVC.email = email
+     welcomeVC.name = name
         }
-     targetVC?.password = self.password
-     targetVC?.email = self.email
-     targetVC?.name = self.name
     }
 }

@@ -25,12 +25,13 @@ class WelcomeVC: UIViewController {
     @IBAction func btnGoSignIn(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "SignInStoryboard", bundle: nil)
         guard let signInVC = storyboard.instantiateViewController(withIdentifier: "Sign_In") as? SignInVC else { return }
+        
         navigationController?.pushViewController(signInVC, animated: true)
     }
     
     private func updateName() {
-        if let name = self.name {
-            welcomeLabel.text?.append(name)
+        if let nameForLabel = name {
+            welcomeLabel.text?.append(" " + nameForLabel)
         }
     }
     

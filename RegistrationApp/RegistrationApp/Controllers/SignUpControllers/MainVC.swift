@@ -1,19 +1,18 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  RegistrationApp
 //
-//  Created by Валентин Величко on 29.01.22.
+//  Created by Valya on 4.02.22.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-

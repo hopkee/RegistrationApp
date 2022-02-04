@@ -23,10 +23,7 @@ final class WelcomeVC: UIViewController {
     
 
     @IBAction private func btnGoSignIn(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "SignInStoryboard", bundle: nil)
-        guard let signInVC = storyboard.instantiateViewController(withIdentifier: "Sign_In") as? SignInVC else { return }
-        
-        navigationController?.pushViewController(signInVC, animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func updateName() {
@@ -41,5 +38,4 @@ final class WelcomeVC: UIViewController {
             UserDefaults.standard.set(newUser, forKey: emailToWrite)
         }
     }
-
 }

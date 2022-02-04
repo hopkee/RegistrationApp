@@ -325,7 +325,7 @@
                             <constraint firstItem="zNk-7S-eWM" firstAttribute="centerX" secondItem="5sD-HF-mgs" secondAttribute="centerX" id="cQU-6f-mzZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3sO-YS-tEM"/>
+                    <navigationItem key="navigationItem" id="jL3-Uy-KCF"/>
                     <connections>
                         <outlet property="welcomeLabel" destination="6cr-iQ-cKf" id="m6C-Yb-PKv"/>
                     </connections>

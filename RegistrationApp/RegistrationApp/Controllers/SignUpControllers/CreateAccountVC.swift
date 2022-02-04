@@ -13,11 +13,10 @@ final class CreateAccountVC: UIViewController {
         super.viewDidLoad()
         defaultStateOfScreen()
         NotificationCenter.default.addObserver(self, selector: #selector(CreateAccountVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(CreateAccountVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateAccountVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @IBAction func emailTextFieldAction() {
+    @IBAction private func emailTextFieldAction() {
         if let email = emailTextFieldOutlet.text {
             if VerificationService.isValidEmail(email: email) {
                 validEmailLabel.isHidden = true
@@ -29,7 +28,7 @@ final class CreateAccountVC: UIViewController {
         }
     }
     
-    @IBAction func nameTextFieldAction() {
+    @IBAction private func nameTextFieldAction() {
         if let name = nameTextFieldOutlet.text {
             if !VerificationService.isValidName(name: name) {
                 validNameLabel.isHidden = false
@@ -40,7 +39,7 @@ final class CreateAccountVC: UIViewController {
         isEntireFormValid()
     }
     
-    @IBAction func passTextFieldOneAction() {
+    @IBAction private func passTextFieldOneAction() {
         if let password = passOneOutlet.text {
             passStrongLevelLabel.isHidden = false
             switch VerificationService.isValidPassword(pass: password) {
@@ -80,7 +79,7 @@ final class CreateAccountVC: UIViewController {
         }
     }
     
-    @IBAction func passTextFieldTwoAction() {
+    @IBAction private func passTextFieldTwoAction() {
         passMatchLabel.isHidden = false
         if let passOne = passOneOutlet.text, let passTwo = passTwoOutlet.text {
             if VerificationService.isPassConfirm(pass1: passOne, pass2: passTwo) && passOne.count >= 8 {
@@ -95,21 +94,21 @@ final class CreateAccountVC: UIViewController {
         }
     }
     
-    @IBAction func signUpBtnClick() {
-        performSegue(withIdentifier: "Modal_Verification", sender: nil)
+    @IBAction private func signUpBtnClick() {
+        performSegue(withIdentifier: "Verification", sender: nil)
     }
     
-    @IBOutlet weak var emailTextFieldOutlet: UITextField!
-    @IBOutlet weak var nameTextFieldOutlet: UITextField!
-    @IBOutlet weak var passOneOutlet: UITextField!
-    @IBOutlet weak var passTwoOutlet: UITextField!
-    @IBOutlet weak var passDifficulty: UIProgressView!
-    @IBOutlet weak var validEmailLabel: UILabel!
-    @IBOutlet weak var validNameLabel: UILabel!
-    @IBOutlet weak var passStrongLevelLabel: UILabel!
-    @IBOutlet weak var passMatchLabel: UILabel!
-    @IBOutlet weak var signUpBtnOutlet: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak private var emailTextFieldOutlet: UITextField!
+    @IBOutlet weak private var nameTextFieldOutlet: UITextField!
+    @IBOutlet weak private var passOneOutlet: UITextField!
+    @IBOutlet weak private var passTwoOutlet: UITextField!
+    @IBOutlet weak private var passDifficulty: UIProgressView!
+    @IBOutlet weak private var validEmailLabel: UILabel!
+    @IBOutlet weak private var validNameLabel: UILabel!
+    @IBOutlet weak private var passStrongLevelLabel: UILabel!
+    @IBOutlet weak private var passMatchLabel: UILabel!
+    @IBOutlet weak private var signUpBtnOutlet: UIButton!
+    @IBOutlet weak private var scrollView: UIScrollView!
     
     private func defaultStateOfScreen() {
         validEmailLabel.isHidden = true
@@ -131,7 +130,7 @@ final class CreateAccountVC: UIViewController {
         }
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
+    @objc private func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         else {
           return
@@ -142,7 +141,7 @@ final class CreateAccountVC: UIViewController {
         scrollView.scrollIndicatorInsets = contentInsets
       }
 
-     @objc func keyboardWillHide(notification: NSNotification) {
+     @objc private func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
             
         scrollView.contentInset = contentInsets

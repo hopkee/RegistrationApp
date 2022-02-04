@@ -7,23 +7,23 @@
 
 import UIKit
 
-class SignInVC: UIViewController {
+final class SignInVC: UIViewController {
     
-    var email: String?
-    var password: String?
+    private var email: String?
+    private var password: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func createAccountBtn() {
+    @IBAction private func createAccountBtn() {
         let signUpStoryboard = UIStoryboard(name: "SignUpStoryboard", bundle: nil)
         guard let SignUpUIVC = signUpStoryboard.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC else {
          return }
         navigationController?.pushViewController(SignUpUIVC, animated: true)
     }
 
-    @IBAction func emailField(_ sender: UITextField) {
+    @IBAction private func emailField(_ sender: UITextField) {
         if sender.text?.count ?? 0 > 0 {
             signInBtnOutlet.isEnabled = true
             email = sender.text
@@ -31,7 +31,7 @@ class SignInVC: UIViewController {
         }
     }
     
-    @IBAction func passField(_ sender: UITextField) {
+    @IBAction private func passField(_ sender: UITextField) {
         if sender.text?.count ?? 0 > 0 {
             signInBtnOutlet.isEnabled = true
             password = sender.text
@@ -39,15 +39,14 @@ class SignInVC: UIViewController {
         }
     }
     
-    @IBAction func signInBtn(_ sender: UIButton) {
-        if VerificationService.checkEmail(email: email) &&
-            VerificationService.checkPass(pass: password) {
+    @IBAction private func signInBtn(_ sender: UIButton) {
+        if VerificationService.checkUser(email: email, password: password) {
             performSegue(withIdentifier: "Go_To_Main", sender: nil)
         } else {
             errorLabel.isHidden = false
         }
     }
         
-    @IBOutlet weak var signInBtnOutlet: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak private var signInBtnOutlet: UIButton!
+    @IBOutlet weak private var errorLabel: UILabel!
 }

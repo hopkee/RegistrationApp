@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum PasswordStrength: Int {
     case veryWeak
@@ -57,18 +58,9 @@ final class VerificationService {
         return pass1 == pass2
     }
     
-    static func checkEmail (email: String?) -> Bool {
-        if let emailInUD = email {
-            if UserDefaults.standard.string(forKey: "email") == emailInUD {
-                return true
-            }
-        }
-        return false
-    }
-    
-    static func checkPass (pass: String?) -> Bool {
-        if let passInUD = pass {
-            if UserDefaults.standard.string(forKey: "pass") == passInUD {
+    static func checkUser(email: String?, password: String?) -> Bool {
+        if let passToCheck = password, let passAndNameArrayInUD = UserDefaults.standard.object(forKey: email!) as? [String?] {
+            if passToCheck == passAndNameArrayInUD[0] {
                 return true
             }
         }

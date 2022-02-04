@@ -196,7 +196,7 @@
                         <outlet property="signUpBtnOutlet" destination="RqC-9x-Udg" id="bKd-Eb-8fb"/>
                         <outlet property="validEmailLabel" destination="WaJ-2i-bNg" id="5Yz-44-z3y"/>
                         <outlet property="validNameLabel" destination="taZ-h4-J0P" id="632-SW-2U5"/>
-                        <segue destination="IWh-1y-lsZ" kind="show" identifier="Modal_Verification" id="z2g-pB-ZdJ"/>
+                        <segue destination="IWh-1y-lsZ" kind="show" identifier="Verification" id="z2g-pB-ZdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,15 +8,15 @@
 import UIKit
 import UserNotifications
 
-class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
+final class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
     
     var name: String?
     var email: String?
     var password: String?
     
-    var verificationCode: String?
+    private var verificationCode: String?
     
-    let userNotificationCenter = UNUserNotificationCenter.current()
+    private let userNotificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,9 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
         self.requestNotificationAuthorization()
     }
     
-    @IBOutlet weak var createAccountBtn: UIButton!
+    @IBOutlet weak private var createAccountBtn: UIButton!
     
-    @IBAction func passField(_ sender: UITextField) {
+    @IBAction private func passField(_ sender: UITextField) {
         if let enteredCode = sender.text,
            let generatedCode = verificationCode {
             if enteredCode == generatedCode {
@@ -36,7 +36,7 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
 
-    @IBAction func createAccountBtnClick(_ sender: UIButton) {
+    @IBAction private func createAccountBtnClick(_ sender: UIButton) {
         performSegue(withIdentifier: "Go_To_Welcome", sender: nil)
     }
     
@@ -49,7 +49,7 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
         completionHandler([.banner, .sound])
     }
     
-    func requestNotificationAuthorization() {
+    private func requestNotificationAuthorization() {
             let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .sound)
             
             self.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
@@ -59,7 +59,7 @@ class CodeVerificationVC: UIViewController, UNUserNotificationCenterDelegate {
             }
         }
     
-    func makeNotificationWithPassword() {
+    private func makeNotificationWithPassword() {
         let tempPass = String(Int.random(in: 9999...99999))
         verificationCode = tempPass
         let notificationContent = UNMutableNotificationContent()

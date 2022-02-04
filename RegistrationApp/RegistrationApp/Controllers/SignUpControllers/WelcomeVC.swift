@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeVC: UIViewController {
+final class WelcomeVC: UIViewController {
 
     var name: String?
     var email: String?
@@ -19,10 +19,10 @@ class WelcomeVC: UIViewController {
         createNewUser(name: name, pass: password, email: email)
     }
     
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak private var welcomeLabel: UILabel!
     
 
-    @IBAction func btnGoSignIn(_ sender: UIButton) {
+    @IBAction private func btnGoSignIn(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "SignInStoryboard", bundle: nil)
         guard let signInVC = storyboard.instantiateViewController(withIdentifier: "Sign_In") as? SignInVC else { return }
         
@@ -35,20 +35,11 @@ class WelcomeVC: UIViewController {
         }
     }
     
-    func createNewUser(name: String?, pass: String?, email: String?) {
-        UserDefaults.standard.set(name, forKey: "name")
-        UserDefaults.standard.set(pass, forKey: "pass")
-        UserDefaults.standard.set(email, forKey: "email")
+    private func createNewUser(name: String?, pass: String?, email: String?) {
+        let newUser = [pass, name]
+        if let emailToWrite = email {
+            UserDefaults.standard.set(newUser, forKey: emailToWrite)
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
